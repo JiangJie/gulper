@@ -6,7 +6,7 @@ var path = require('path');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 
-var clean = require('gulp-clean');
+var del = require('del');
 
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
@@ -18,7 +18,6 @@ var nib = require('nib');
 var usemin = require('gulp-usemin');
 var revall = require('gulp-rev-all');
 
-var replace = require('gulp-replace');
 var cdn = require('gulp-cdn-replace');
 
 var sprite = require('css-sprite').stream;
@@ -28,13 +27,11 @@ var run = require('run-sequence');
 var src = './src';
 var dest = './dist';
 
-gulp.task('clean', function() {
-    return gulp.src(dest, {read: false})
-        .pipe(clean());
+gulp.task('clean', function(fn) {
+    del(dest, fn);
 });
 gulp.task('clean-dev', function() {
-    return gulp.src([src + '/js', src + '/css'], {read: false})
-        .pipe(clean());
+    del([src + '/js', src + '/css'], fn);
 });
 
 gulp.task('tmpl', function() {
