@@ -30,7 +30,7 @@ var dest = './dist';
 gulp.task('clean', function(fn) {
     del(dest, fn);
 });
-gulp.task('clean-dev', function() {
+gulp.task('clean-dev', function(fn) {
     del([src + '/js', src + '/css'], fn);
 });
 
@@ -109,11 +109,11 @@ gulp.task('sprite', function() {
     gulp.src(src + '/stylus/icon/*.png')
         .pipe(sprite({
             name: 'sprite',
-            style: '_sprite.styl',
-            cssPath: './icon',
-            processor: 'syulus'
+            style: '_sprite.css',
+            processor: 'css',
+            retina: true
         }))
-        .pipe(gulpif('*.png', gulp.dest(src + '/css/img/')), gulp.dest(src + '/css/'));
+        .pipe(gulpif('*.png', gulp.dest(src + '/css/img/'), gulp.dest(src + '/css/')));
 });
 
 gulp.task('default', ['clean-dev'], function() {

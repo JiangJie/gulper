@@ -1,0 +1,35 @@
+.icon {
+  background-image: url('img\sprite.png');
+}
+
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  .icon {
+    background-image: url('img\sprite-x2.png');
+    background-size: 22px 88px;
+  }
+}
+
+.icon-intro {
+  background-position: -2px -2px;
+  width: 17px;
+  height: 17px;
+}
+
+.icon-localtion {
+  background-position: -2px -24px;
+  width: 17px;
+  height: 17px;
+}
+
+.icon-logo {
+  background-position: -2px -46px;
+  width: 17px;
+  height: 17px;
+}
+
+.icon-tag {
+  background-position: -2px -68px;
+  width: 17px;
+  height: 17px;
+}
+
