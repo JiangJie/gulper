@@ -1,0 +1,34 @@
+{
+  "name": "gulper",
+  "version": "0.0.1",
+  "description": "something about gulp",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "npm test",
+    "gulp": "node --harmony node_modules/gulp/bin/gulp.js"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "jiang115jie@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "gulp": "^3.8.10",
+    "gulp-cdn-replace": "0.0.5",
+    "gulp-clean": "^0.3.1",
+    "gulp-if": "^1.2.5",
+    "gulp-lodash-template": "0.0.3",
+    "gulp-replace": "^0.5.0",
+    "gulp-rev-all": "^0.7.1",
+    "gulp-stylus": "^1.3.3",
+    "gulp-usemin": "^0.3.8",
+    "nib": "^1.0.4",
+    "run-sequence": "^1.0.1",
+    "vinyl-source-stream": "^1.0.0",
+    "css-sprite": "*"
+  },
+  "dependencies": {
+    "lodash.escape": "^2.4.1"
+  }
+}
