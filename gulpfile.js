@@ -61,6 +61,11 @@ gulp.task('stylus', function() {
         .pipe(gulp.dest(src + '/css/'));
 });
 
+gulp.task('img', function() {
+    return gulp.src(src + '/stylus/img/**')
+        .pipe(gulp.dest(src + '/css/img/'));
+});
+
 gulp.task('usemin', ['clean'], function() {
     gulp.src(src + '/*.html')
         .pipe(usemin({
@@ -106,16 +111,18 @@ gulp.task('cdn', function() {
 });
 
 gulp.task('sprite', function() {
-    gulp.src(src + '/stylus/icon/*.png')
+    return gulp.src(src + '/stylus/icon/*.png')
         .pipe(sprite({
             name: 'sprite',
-            style: '_sprite.css',
-            processor: 'css',
-            retina: true
+            style: '_sprite.styl',
+            processor: 'stylus',
+            retina: true,
+            cssPath: 'img'
         }))
-        .pipe(gulpif('*.png', gulp.dest(src + '/css/img/'), gulp.dest(src + '/css/')));
+        .pipe(gulpif('*.png', gulp.dest(src + '/stylus/img/'), gulp.dest(src + '/stylus/')));
 });
 
 gulp.task('default', ['clean-dev'], function() {
-    run(['jslib', 'browserify', 'stylus']);
+    run(['jslib', 'browserify']);
+    run('sprite', ['stylus', 'img']);
 });
